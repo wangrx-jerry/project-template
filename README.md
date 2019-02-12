@@ -29,3 +29,11 @@ npm run lint
 ```
 npm run test:unit
 ```
+参考地址：https://juejin.im/post/5c4a6fcd518825469414e062
+待完善：
+1. unit.js
+2. storage
+3. axios
+4. iconfont
+5. common.css 
+6. 断网组件
