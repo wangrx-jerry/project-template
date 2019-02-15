@@ -31,9 +31,8 @@ npm run test:unit
 ```
 参考地址：https://juejin.im/post/5c4a6fcd518825469414e062
 待完善：
-1. unit.js
-2. storage
-3. axios
-4. iconfont
-5. common.css 
-6. 断网组件
+1. storage
+2. iconfont
+3. @和～后面的文件会被当作模块引入（区别？）
+4. 压缩
+5. 总结
