@@ -2,6 +2,7 @@
   <div class="menu">
     <header class="tc">
       <h3 class="green">衣链</h3>
+      {{ util.getDate() }}
     </header>
     <main>
       <div class="login-form auto">
@@ -76,7 +77,6 @@ export default {
         // Pwd: MD5(this.loginForm.passWord),
         VerifyCode: this.loginForm.captcha
       };
-      debugger;
       this.axios({
         url: "api/Login/LoginAction",
         method: "post",
