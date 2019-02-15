@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/index";
 import store from "./store";
+import util from "./assets/js/util";
 
 import "./components";
 import "./plugins/element.js";
@@ -11,6 +12,7 @@ import "@/assets/css/reset.css";
 
 Vue.config.productionTip = false;
 
+Vue.use(util);
 new Vue({
   router,
   store,
