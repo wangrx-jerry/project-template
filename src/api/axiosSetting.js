@@ -1,13 +1,11 @@
 import Vue from "vue";
 import ElementUI from "element-ui";
 import axios from "axios";
-import baseURL from "../../setBaseUrl";
 import store from "../store/vuex";
 import router from "../router";
 
-console.log(">>>", process.env, baseURL);
-let AxiosIns = axios.create({
-  baseURL: baseURL,
+let service = axios.create({
+  baseURL: window.location.protocol + "//" + window.location.host + "/",
   timeout: 60000,
   contentType: "application/json"
 });
@@ -22,7 +20,7 @@ let loading = null,
     background: "rgba(0, 0, 0, 0.7)"
   };
 
-AxiosIns.interceptors.request.use(config => {
+service.interceptors.request.use(config => {
   if (store.state.global.useGlobalAxios) {
     clearTimeout(setTime);
     clearTimeout(tid);
@@ -34,7 +32,7 @@ AxiosIns.interceptors.request.use(config => {
   return config;
 });
 
-AxiosIns.interceptors.response.use(
+service.interceptors.response.use(
   response => {
     // 保证200毫秒内发起再次发起请求不会关闭loading
     tid = setTimeout(() => {
@@ -62,7 +60,6 @@ AxiosIns.interceptors.response.use(
       loading && loading.close();
     }, 200);
     try {
-      debugger;
       if (/Network Error|504/.test(error.message)) {
         //网络错误/504
         ElementUI.Message({
@@ -108,4 +105,4 @@ AxiosIns.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-Vue.prototype.axios = AxiosIns;
+Vue.prototype.axios = service;
