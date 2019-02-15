@@ -6,6 +6,8 @@ import store from "./store";
 import "./components";
 import "./plugins/element.js";
 import "./api/axiosSetting";
+import "@/assets/css/common.css";
+import "@/assets/css/reset.css";
 
 Vue.config.productionTip = false;
 

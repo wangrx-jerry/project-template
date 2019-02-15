@@ -1,0 +1,193 @@
+
+/* ---------------------single CSS----------------------- */
+
+/* display */
+.dn{display: none; }
+.di{display: inline; }
+.db{display: block; }
+.dib{display: inline-block; }
+.df{display: flex; }
+.dif{display: inline-flex; }
+
+/* height */
+.h30{height: 30px; }
+
+/* line-height */
+.lh30{line-height: 30px; }
+
+/* width (fixed width value)*/
+.w50{width: 50px; }
+.w100{width: 100px; }
+
+/* percent width value */
+.pct25{width: 25%; }
+.pct33{width: 33.3%; }
+.pct50{width: 50%; }
+.pct80{width: 80%; }
+.pct100{width: 100%; }
+
+/* percent height value */
+.pcth100{height: 100%; }
+
+/* margin */
+.m0{margin: 0; }
+.m5{margin: 5px; }
+.m10{margin: 10px; }
+.m15{margin: 15px; }
+.ml5{margin-left: 5px; }
+.ml10{margin-left: 10px; }
+.ml15{margin-left: 15px; }
+.ml20{margin-left: 20px; }
+.mr5{margin-right: 5px; }
+.mr10{margin-right: 10px; }
+.mr15{margin-right: 15px; }
+.mr20{margin-right: 20px; }
+.mt5{margin-top: 5px; }
+.mt10{margin-top: 10px; }
+.mt15{margin-top: 15px; }
+.mt20{margin-top: 20px; }
+.mb5{margin-bottom: 5px; }
+.mb10{margin-bottom: 10px; }
+.mb15{margin-bottom: 15px; }
+.mb20{margin-bottom: 20px; }
+
+/* padding */
+.p0{padding: 0; }
+.p5{padding: 5px; }
+.p10{padding: 10px; }
+.p15{padding: 15px; }
+.pl5{padding-left: 5px; }
+.pl10{padding-left: 10px; }
+.pl15{padding-left: 15px; }
+.pl20{padding-left: 20px; }
+.pr5{padding-right: 5px; }
+.pr10{padding-right: 10px; }
+.pr15{padding-right: 15px; }
+.pr20{padding-right: 20px; }
+.pt5{padding-top: 5px; }
+.pt10{padding-top: 10px; }
+.pt15{padding-top: 15px; }
+.pt20{padding-top: 20px; }
+.pb5{padding-bottom: 5px; }
+.pb10{padding-bottom: 10px; }
+.pb15{padding-bottom: 15px; }
+.pb20{padding-bottom: 20px; }
+
+/* padding horizontal name rule: ph */
+.ph5{padding-right: 5px;padding-left: 5px; }
+.ph10{padding-right: 10px;padding-left: 10px; }
+.ph15{padding-right: 15px;padding-left: 15px; }
+.ph20{padding-right: 20px;padding-left: 20px; }
+.ph30{padding-right: 30px;padding-left: 30px; }
+
+/* padding vertical name rule: pv */
+.pv5{padding-top: 5px;padding-bottom: 5px; }
+.pv10{padding-top: 10px;padding-bottom: 10px; }
+.pv15{padding-top: 15px;padding-bottom: 15px; }
+.pv20{padding-top: 20px;padding-bottom: 20px; }
+.pv30{padding-top: 30px;padding-bottom: 30px; }
+
+/* border-color name rule: border(b)-position(l/r/t/b/d)-width(null/2)-style(null/sh)-color(first one letter/first two letter) |-> All colors are safe color*/
+.bdgray{border: 1px solid #f2f2f2; }
+.blgray{border-left: 1px solid #f2f2f2; }
+.brgray{border-right: 1px solid #f2f2f2; }
+.btgray{border-top: 1px solid #f2f2f2; }
+.bbgray{border-bottom: 1px solid #f2f2f2; }
+
+/* background-color name rule: bg - (key word/Hex color) |-> All colors are safe color */
+.bgwh{background-color: #fff; }
+.bggray{background-color: #f2f2f2; }
+
+/* common color */
+.wh{color: white; }
+.green{color: #12b8b2; }
+.red{color: #f56c6c; }
+.blue{color: #1890ff; }
+.yellow{color: #f5b92c; }
+.black{color: #333; }
+.gray{color: #999; }
+
+/* font-size */
+.f12{font-size: 24px; }
+.f14{font-size: 28px; }
+.f16{font-size: 32px; }
+.f18{font-size: 36px; }
+.f20{font-size: 20px; }
+.f24{font-size: 48px; }
+
+/* font-style */
+.regula{font-weight: 400; }
+.medium{font-weight: 500; }
+.fw600{font-weight: 600; }
+
+/* text-align */
+.tc{text-align: center; }
+.tr{text-align: right; }
+.tl{text-align: left; }
+.tj{text-align: justify; }
+
+/*flex justity*/
+.jsb{justify-content: space-between; }
+.jsa{justify-content: space-around; }
+.jsc{justify-content: center; }
+.jse{justify-content: flex-end; }
+
+/*flex justity*/
+.at{align-items: flex-start; }
+.ac{align-items: center; }
+
+/* flex-direction */
+.fc{flex-direction: column; }
+.fr{flex-direction: row; }
+.frr{flex-direction: row-reverse; }
+
+/* flex other */
+.fg1{flex-grow: 1; }
+.fg2{flex-grow: 2; }
+
+/* text-decoration */
+.tdl{text-decoration: underline; }
+.tdn,.tdn:hover,.tdn a:hover,a.tdl:hover{text-decoration: none; }
+
+/* position */
+.rel{position: relative; }
+.abs{position: absolute; }
+.fixd{position: fixed; }
+
+/*z-index*/
+.zx1{z-index: 1; }
+.zx2{z-index: 2; }
+.zx9999{z-index: 9999; }
+
+/* cursor */
+.poi{cursor: pointer; }
+.def{cursor: default; }
+
+/* overflow */
+.ovh{overflow: hidden; }
+.ova{overflow: auto; }
+
+/* ------------------- multiply CSS ------------------ */
+
+/* 块状元素水平居中 */
+.auto{margin-right: auto;margin-left: auto; }
+
+/* 单行文字溢出虚点显 示*/
+.ell{overflow: hidden;white-space: nowrap;text-overflow: ellipsis; }
+
+/* css3过渡动画效果 */
+.trans{transition: all 0.3s; }
+
+/* 按钮禁用 */
+.disabled{cursor: default !important;pointer-events: none;color: #acacac !important;border-color: #acacac !important;outline: 0 !important;text-shadow: 1px 1px #fff !important; }
+.disabled:hover{text-decoration: none !important; }
+
+/* ------------------- other CSS ------------------ */
+body{font-size: 28px;font-weight: 400;box-sizing: border-box;height: 100%;margin: 0; }
+ul,li,ol,dl{margin: 0;padding: 0;list-style: none; }
+label,.table,h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,p,ul,li,ol,dl{margin-bottom: 0; }
+input[type=text]:focus,input[type=username]:focus,input[type=email]:focus,input[type=password]:focus,textarea:focus{outline: none;-webkit-appearance: none; }
+input,textarea{-webkit-appearance: none; }
+table{border-collapse: collapse; }
+button{border: none; }
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{margin: 0;-webkit-appearance: none !important; }
