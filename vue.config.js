@@ -1,5 +1,6 @@
 module.exports = {
   devServer: {
+    port: 9999,
     proxy: {
       "/api": {
         // target: 'http://test2.ihappygroup.net/api',

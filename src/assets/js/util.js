@@ -184,25 +184,25 @@ class Helper {
     str += "<title>" + title + "</title>";
     str += "<style>";
     str += `.df{display: flex;}
-				.pb20{padding-bottom:20px}
-				.mr20{margin-right:20px}
-				.mt20{margin-top:20px}
-				table{border-collapse: collapse}
-				.yl-table{width: 100%;table-layout: fixed;}
-				.yl-table th,.yl-table td{padding: 10px; text-align: center;vertical-align: middle;background-color: #fff;word-break: break-all }
-				.yl-table th{font-weight: bold;text-align: center; color: #909399;background-color: #fff; }
-				.yl-table td{ color: #000; }
-				.yl-table.border{border-top: 1px solid #000;border-left: 1px solid #000; border-radius: 3px; }
-				.yl-table.border td,.yl-table.border th{ border-right: 1px solid #000;border-bottom: 1px solid #000;word-break: break-all; }
-				.printHide{display: none;}
-				.printShow{display: block;}
-				.l{ float: left; }
-				.r{ float: right; }
-				.pct25{ width: 25%; }
-				.tc{text-align: center;}
-				.tl{text-align:left}
-				.f12{font-size:12px;}
-				`;
+                .pb20{padding-bottom:20px}
+                .mr20{margin-right:20px}
+                .mt20{margin-top:20px}
+                table{border-collapse: collapse}
+                .yl-table{width: 100%;table-layout: fixed;}
+                .yl-table th,.yl-table td{padding: 10px; text-align: center;vertical-align: middle;background-color: #fff;word-break: break-all }
+                .yl-table th{font-weight: bold;text-align: center; color: #909399;background-color: #fff; }
+                .yl-table td{ color: #000; }
+                .yl-table.border{border-top: 1px solid #000;border-left: 1px solid #000; border-radius: 3px; }
+                .yl-table.border td,.yl-table.border th{ border-right: 1px solid #000;border-bottom: 1px solid #000;word-break: break-all; }
+                .printHide{display: none;}
+                .printShow{display: block;}
+                .l{ float: left; }
+                .r{ float: right; }
+                .pct25{ width: 25%; }
+                .tc{text-align: center;}
+                .tl{text-align:left}
+                .f12{font-size:12px;}
+                `;
     // .scale-page {transform: scaleY(${scale}); transform-origin: 0 0;height: 840px; overflow:hidden}
     str += "</style>";
     str += "</head>";
@@ -247,92 +247,6 @@ class Helper {
     return theRequest;
   }
 
-  // 小数位限制
-  limitPoint(value, point = 2, max = 99999999) {
-    value = String(value);
-    value = value.replace(/[^\d.]/g, ""); // 只能输入数字
-    if (point === 0) {
-      if (value.length === 1) {
-        value = value.replace(/[^0-9]/g, "");
-      } else {
-        value = value.replace(/\D/g, "");
-      }
-    } else if (point === 1) {
-      value = value
-        .replace(/[^\d.]/g, "")
-        //只允许一个小数点
-        .replace(/^\./g, "")
-        .replace(/\.{2,}/g, ".")
-        //只能输入小数点后三位
-        .replace(".", "$#$")
-        .replace(/\./g, "")
-        .replace("$#$", ".")
-        .replace(/^(\-)*(\d+)\.(\d).*$/, "$1$2.$3");
-    } else if (point === 2) {
-      value = value
-        .replace(/[^\d.]/g, "")
-        //只允许一个小数点
-        .replace(/^\./g, "")
-        .replace(/\.{2,}/g, ".")
-        //只能输入小数点后2位
-        .replace(".", "$#$")
-        .replace(/\./g, "")
-        .replace("$#$", ".")
-        .replace(/^(\-)*(\d+)\.(\d\d).*$/, "$1$2.$3");
-    } else if (point === 3) {
-      value = value
-        .replace(/[^\d.]/g, "")
-        //只允许一个小数点
-        .replace(/^\./g, "")
-        .replace(/\.{2,}/g, ".")
-        //只能输入小数点后三位
-        .replace(".", "$#$")
-        .replace(/\./g, "")
-        .replace("$#$", ".")
-        .replace(/^(\-)*(\d+)\.(\d\d\d).*$/, "$1$2.$3");
-    } else if (point === 4) {
-      value = value
-        .replace(/[^\d.]/g, "")
-        //只允许一个小数点
-        .replace(/^\./g, "")
-        .replace(/\.{2,}/g, ".")
-        //只能输入小数点后三位
-        .replace(".", "$#$")
-        .replace(/\./g, "")
-        .replace("$#$", ".")
-        .replace(/^(\-)*(\d+)\.(\d\d\d\d).*$/, "$1$2.$3");
-    }
-    if (value.indexOf(".") < 0 && value !== "") {
-      //以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
-      value = parseFloat(value);
-    }
-    if (value > max) {
-      value = value.toString();
-      value = value.substr(0, value.length - 1);
-    }
-    if (value === "") {
-      return "";
-    } else {
-      return value;
-    }
-  }
-
-  // 对obj已有属性赋值，用于准备接口入参
-  setTarget(obj, source) {
-    source = source || {};
-    for (let k in obj) {
-      if (Array.isArray(source[k])) {
-        //arr
-        obj[k] = [].concat(source[k]);
-      } else if (typeof source[k] !== "object" || !source[k]) {
-        obj[k] = source[k] || "";
-      } else {
-        //object
-        obj[k] = Object.assign({}, source[k]);
-      }
-    }
-  }
-
   //数字金额转换文字
   numToChinese(n) {
     var fraction = ["角", "分"];
@@ -365,14 +279,6 @@ class Helper {
     );
   }
 
-  //保存用户搜索条件
-  setParamCache(key, param) {
-    try {
-      localStorage.setItem(key, JSON.stringify(param));
-    } catch (e) {
-      return;
-    }
-  }
   //获取保存的搜索条件
   getParamCache(key, fun) {
     //var key = window.location.pathname + '_' + hb.User.fgidUserID;
@@ -383,20 +289,6 @@ class Helper {
       } catch (e) {
         return;
       }
-    }
-  }
-  //格式话日期格式 yyyy-MM-dd
-  initDate(date) {
-    if (date) {
-      var d = new Date(date),
-        month = "" + (d.getMonth() + 1),
-        day = "" + d.getDate(),
-        year = d.getFullYear();
-      if (month.length < 2) month = "0" + month;
-      if (day.length < 2) day = "0" + day;
-      return [year, month, day].join("-");
-    } else {
-      return;
     }
   }
 

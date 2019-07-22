@@ -19,9 +19,7 @@ export default {
     this.axiosText();
   },
   methods: {
-    axiosText() {
-      console.log("axios>>>", this);
-    }
+    axiosText() {}
   }
 };
 </script>
