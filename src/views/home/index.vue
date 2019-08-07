@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="@/assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
     <router-link :to="{ name: 'login' }">login</router-link>
+    <div class="mixin">mixin style</div>
   </div>
 </template>
 
@@ -15,6 +16,9 @@ export default {
   components: {
     HelloWorld
   },
+  data() {
+    return {};
+  },
   mounted() {
     this.axiosText();
   },
@@ -23,4 +27,8 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.mixin {
+  @include sexy-border(blue, 1px);
+}
+</style>

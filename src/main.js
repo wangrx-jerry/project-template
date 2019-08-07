@@ -4,11 +4,11 @@ import router from "./router/index";
 import store from "./store";
 import util from "./assets/js/util";
 
-import "./components";
-import "./plugins/element.js";
-import "./api/axiosSetting";
-import "@/assets/css/common.css";
-import "@/assets/css/reset.css";
+import "@/components";
+import "@/plugins/element.js";
+import "@/api/axiosSetting";
+import "@/assets/styles/variable.css";
+import "@/assets/styles/reset.css";
 
 Vue.config.productionTip = false;
 
