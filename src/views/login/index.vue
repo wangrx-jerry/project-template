@@ -56,6 +56,7 @@
   </div>
 </template>
 <script>
+import MD5 from "md5";
 export default {
   data() {
     return {
@@ -72,8 +73,8 @@ export default {
     onSubmit() {
       let data = {
         UserNo: this.loginForm.userName,
-        Pwd: "",
-        // Pwd: MD5(this.loginForm.passWord),
+        // Pwd: "",
+        Pwd: MD5(this.loginForm.passWord),
         VerifyCode: this.loginForm.captcha
       };
       this.axios({
