@@ -1,0 +1,33 @@
+/* ------------------- global default CSS ------------------ */
+body{ font-size: 14px;font-weight: 400;height: 100%;margin: 0; font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;color: #333;overflow-x: hidden;}
+*{box-sizing: border-box}
+ul,li,ol,dl{ padding: 0;list-style: none; margin: 0; }
+label,.table,h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,p,ul,li,ol,dl{ margin-bottom: 0; }
+input[type=text]:focus,input[type=username]:focus,input[type=email]:focus,input[type=password]:focus,textarea:focus{ outline: none;-webkit-appearance: none; }
+input,textarea{ -webkit-appearance: none; }
+table{border-collapse: collapse}
+/* 禁用数字加减 */
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {	-webkit-appearance: none !important;margin: 0;}
+/* 禁用文字选中 */
+*.unselectable {
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+ }
+.fix{*zoom:1;}
+.fix:after{ display: table;clear: both;content: ''; }
+ /* 块状元素水平居中 */
+.auto{margin-right: auto;margin-left: auto; }
+
+/* 单行文字溢出虚点显 示*/
+.ell{overflow: hidden;white-space: nowrap;text-overflow: ellipsis; }
+
+/* css3过渡动画效果 */
+.trans{transition: all 0.3s; }
+
+/* 按钮禁用 */
+.disabled{cursor: default !important;pointer-events: none;color: #acacac !important;border-color: #acacac !important;outline: 0 !important;text-shadow: 1px 1px #fff !important; }
+.disabled:hover{text-decoration: none !important; }
+
