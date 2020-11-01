@@ -4,11 +4,16 @@
 */
 <template>
     <div class="p15 tc">
-		 some view page
+		<p v-on-clickaway="away"> on click away</p>
+		some view page
     </div>
 </template>
 <script>
+import {directive as onClickaway} from 'vue-clickaway';
 export default {
+	directives: {
+		onClickaway: onClickaway
+	},
 	data () {
 		return {};
 	},
@@ -16,7 +21,11 @@ export default {
 	},
 	mounted () {},
 	computed: {},
-	methods: {}
+	methods: {
+		away (ev) {
+			console.log(ev);
+		}
+	}
 };
 </script>
 <style scoped lang='scss'>
