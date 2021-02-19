@@ -1,3 +1,4 @@
+// TODO: 设置主题，参考地址：https://segmentfault.com/a/1190000009762198#articleHeader2
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
@@ -10,9 +11,10 @@ import localStorage from './store/localStorage';
 import sessionStorage from './store/sessionStorage';
 
 import 'element-ui/lib/theme-chalk/index.css';
-import '@/assets/styles/variable.css';
+import '@/assets/styles/variable.scss';
 import '@/assets/styles/reset.css';
 import '@/assets/styles/common.css';
+import '@/assets/styles/_theme.scss';
 import '@/api/axiosSetting';
 import 'animate.css/animate.min.css';
 import '@/components/index';

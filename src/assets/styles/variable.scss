@@ -1,3 +1,4 @@
+@import "@/assets/styles/_handle.scss";
 /* display */
 .dn{display: none; }
 .di{display: inline; }
@@ -5,6 +6,7 @@
 .dib{display: inline-block; }
 .df{display: flex; }
 .dif{display: inline-flex; }
+.dg{display: grid;}
 
 /* height */
 .h30{height: 30px; }
@@ -191,3 +193,8 @@
 /* overflow */
 .ovh{overflow: hidden; }
 .ova{overflow: auto; }
+
+/* 等分 */
+.grid2{grid-template-columns: repeat(2, 1fr); }
+.grid3{grid-template-columns: repeat(3, 1fr); }
+.grid4{grid-template-columns: repeat(4, 1fr); }

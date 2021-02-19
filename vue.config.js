@@ -5,6 +5,7 @@ module.exports = {
 		proxy: {
 			'/api': {
 				// target: 'http://test2.ihappygroup.net/api',
+				// target: 'http://test2.ihappygroup.net/api',
 				target: 'localhost:3333/api',
 				// target: 'http://scm.ihappygroup.net/api',
 				// target: 'http://localhost:34800/api',

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import clone from './clone.js';
-import ElementUI from 'element-ui';
+// import ElementUI from 'element-ui';
 // let Vue = window.Vue,
 // 	ElementUI = window.ELEMENT;
 
@@ -53,15 +53,6 @@ class Helper {
 		return timeDetail.join(splitSymble);
 	}
 
-	// 格式化时间格式 yyyy-MM-dd HH:mm
-	getDateTime (timeStamp = new Date().getTime()) {
-		if(!timeStamp) return '';
-		if(typeof timeStamp === 'string') timeStamp = timeStamp.replace(/-/g, '/');
-		let date = this.getDate(timeStamp);
-		let time = this.getTimeDetail(timeStamp, ':', 'hh:mm');
-		if(date) return date + ' ' + time;
-	}
-
 	// 格式化时间格式 hh:mm:ss
 	getTimeDetail (
 		timeStamp = new Date().getTime(),
@@ -106,58 +97,6 @@ class Helper {
 			}
 		}
 		return false;
-	}
-
-	// 打印指定区域
-	printArea (id, title = '打印页面') {
-		if(!id) {
-			ElementUI.Message({
-				message: '未获取到打印区域',
-				type: 'warning',
-				showClose: true
-			});
-			return;
-		}
-		let targetDom = document.getElementById(id);
-		let printPage = targetDom.innerHTML;
-		let oPop = window.open('', 'oPop');
-		let str = '<!DOCTYPE html>';
-		str += '<html>';
-		str += '<head>';
-		str += '<meta charset="utf-8">';
-		str += '<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">';
-		str += '<title>' + title + '</title>';
-		str += '<style>';
-		str += `.df{display: flex;}
-				.pb20{padding-bottom:20px}
-				.mr20{margin-right:20px}
-				.mt20{margin-top:20px}
-				table{border-collapse: collapse}
-				.yl-table{width: 100%;table-layout: fixed;}
-				.yl-table th,.yl-table td{padding: 10px; text-align: center;vertical-align: middle;background-color: #fff;word-break: break-all }
-				.yl-table th{font-weight: bold;text-align: center; color: #909399;background-color: #fff; }
-				.yl-table td{ color: #000; }
-				.yl-table.border{border-top: 1px solid #000;border-left: 1px solid #000; border-radius: 3px; }
-				.yl-table.border td,.yl-table.border th{ border-right: 1px solid #000;border-bottom: 1px solid #000;word-break: break-all; }
-				.printHide{display: none;}
-				.printShow{display: block;}
-				.l{ float: left; }
-				.r{ float: right; }
-				.pct25{ width: 25%; }
-				.tc{text-align: center;}
-				.tl{text-align:left}
-				.f12{font-size:12px;}
-				`;
-		// .scale-page {transform: scaleY(${scale}); transform-origin: 0 0;height: 840px; overflow:hidden}
-		str += '</style>';
-		str += '</head>';
-		str += '<body>';
-		str += printPage;
-		str += '</body>';
-		str += '</html>';
-		oPop.document.write(str);
-		oPop.print();
-		oPop.close();
 	}
 
 	// 获取url后面的请求参数
@@ -228,46 +167,6 @@ class Helper {
 	// 通过指定key排序数组
 	sortByKey (arr, key) {
 		return arr.sort(this.compare(key));
-	}
-
-	// 获取旧系统菜单权限
-	getMenuPermis (menuName) {
-		if(window.top && window.top.getMenuByName) {
-			let menu = window.top.getMenuByName(menuName);
-			if(menu && menu['fbitMenuType']) {
-				return true;
-			}else{
-				return false;
-			}
-		}else{
-			return true;
-		}
-	}
-
-	closeWindow (menuid) {
-		if(window.top && window.top.hTabs) {
-			window.top.hTabs.close((tab) => {
-				return tab.fgidmenuid === menuid;
-			});
-		}
-	}
-
-	// 打开旧系统tab
-	openWindow ({menuId, url, text, query, parentid, onClosed}) {
-		if(window.top && window.top.hTabs) {
-			window.top.hTabs.close((tab) => {
-				return tab.fgidmenuid === menuId;
-			});
-			let params = {
-				url,
-				text,
-				fgidmenuid: menuId,
-				parentid,
-				query,
-				onClosed
-			};
-			window.top.hTabs.open(params);
-		}
 	}
 
 	// 获取剪切板数据
@@ -357,16 +256,43 @@ class Helper {
 		}
 	}
 
-	getGuid () {
-		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-			var r = Math.random() * 16 | 0,
-				v = c === 'x' ? r : (r & 0x3 | 0x8);
-			return v.toString(16);
-		});
+	// 仅删除第一个匹配项，如果是对象数组，则value传入对象
+	removeItemOnce (arr, value) {
+		if(Array.isArray(arr) && arr.length) {
+			let index = -1;
+			if(typeof value === 'object') {
+				let searchKey = Object.keys(value)[0],
+					searchValue = Object.values(value)[0];
+				index = arr.findIndex(val => val[searchKey] === searchValue);
+			}else{
+				index = arr.indexOf(value);
+			}
+			if(index > -1) {
+				arr.splice(index, 1);
+			}
+		}
 	}
 
-	isEmptyId (id) {
-		return id === '00000000-0000-0000-0000-000000000000';
+	// 删除所有匹配项，如果是对象数组，则value传入对象
+	removeItemAll (arr, value) {
+		let i = 0;
+		while(i < arr.length) {
+			if(typeof value === 'object') {
+				let searchKey = Object.keys(value)[0],
+					searchValue = Object.values(value)[0];
+				if(arr[i][searchKey] === searchValue) {
+					arr.splice(i, 1);
+				}else{
+					++i;
+				}
+			}else{
+				if(arr[i] === value) {
+					arr.splice(i, 1);
+				}else{
+					++i;
+				}
+			}
+		}
 	}
 }
 let util = new Helper();

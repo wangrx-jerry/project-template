@@ -80,4 +80,15 @@ export default {
 };
 </script>
 <style scoped lang='scss'>
+// @import "@/assets/styles/_handle.scss";
+    // .common-util {
+    //     font-size: 18px;
+    //     @include font_color("font_color1");
+    //     @include background_color("background_color1");
+    //     @include border_color("border_color1");
+	// }
+	// .text{
+	// 	border: 1px solid;
+	// 	@include border_color("border_color1");
+	// }
 </style>
