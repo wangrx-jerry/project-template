@@ -70,11 +70,11 @@ export default {
 	mounted () {},
 	computed: {},
 	methods: {
-		clickHandler (p) {
-			console.log(p);
+		clickHandler () {
+			// console.log(p);
 		},
-		away (ev) {
-			console.log(ev);
+		away () {
+			// console.log(ev);
 		}
 	}
 };
