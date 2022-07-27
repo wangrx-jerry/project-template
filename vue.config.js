@@ -22,8 +22,11 @@ module.exports = {
 		if(process.env.NODE_ENV === 'production') {
 			return {
 				plugins: [new CompressionPlugin({
-					test: /\.js$|\.html$|\.css$/,
+					test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$'),
+					// test: /\.js$|\.html$|\.css$/,
+					algorithm: 'gzip',
 					threshold: 10240,
+					minRatio: 0.8,
 					deleteOriginalAssets: false
 				})]
 			};

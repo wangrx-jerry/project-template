@@ -23,6 +23,7 @@ npm run new:views
 ### 配置参考
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+### 建议node版本 <= 12.14.0
 
 ## 注意
 > 1. 文件结构说明：
