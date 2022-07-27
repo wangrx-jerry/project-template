@@ -48,3 +48,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 > 4. 代码规范
 - 采用Standard config， 已修改了部分配置，如果有语法和格式问题，请参考报错自行修改
+
+## TODO
+[] sass动态生成变量级 css
+[] 自定义主题
